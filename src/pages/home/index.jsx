@@ -5,6 +5,7 @@ import { AdvantageCard } from "../../components/molecules/index";
 import stability from "../../images/Stability.png";
 import fastness from "../../images/Fastness.png";
 import helpfulness from "../../images/Helpfulness.png";
+
 const Home = () => {
   // Advantage Cards
   const advantageData = [

@@ -38,7 +38,7 @@ const Navbar = ({quantity}) => {
               to="/cart"
               className={pathname.startsWith("/cart") ? "active" : ""}
             >
-              корзина {quantity}
+              корзина <span className="quantity">{quantity}</span>
             </Link>
           </div>
         </nav>

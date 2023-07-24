@@ -22,7 +22,6 @@ function Contact() {
 
   function handleSumbit(e) {
     e.preventDefault();
-
     if (
       formData.name === "" ||
       formData.mail === "" ||

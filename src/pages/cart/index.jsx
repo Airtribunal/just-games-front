@@ -7,10 +7,15 @@ const Cart = (props) => {
     <section className="cart-section">
       <div className="container">
         <h1 className="section-title">Корзина товаров</h1>
+        {cartItems.length === 0 && (
+          <h6
+            style={{ width: "fit-content", margin: "0 auto", fontSize: "20px" }}
+          >
+            Корзина товаров пока пуста!
+          </h6>
+        )}
         <div className="cart-items-container">
-          {cartItems.length === 0 && <h3>Корзина товаров пока пуста!</h3>}
           {cartItems.map((item, id) => {
-            console.log(item);
             return (
               <div className="card" key={id}>
                 <div className="card-img">
@@ -26,6 +31,7 @@ const Cart = (props) => {
                   <p className="card-description">
                     {item?.attributes?.productDesc}
                   </p>
+                  <p className="card-key"><strong>Ваш ключ к игре: </strong>{item?.attributes?.productKey}</p>
                   <p className="card-price">{item?.attributes?.productPrice}</p>
                   <button
                     className="card-button"

@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { PacmanLoader } from "react-spinners";
 import circle from "../../../images/circle.svg";
 import useFetch from "../../../hooks/useFetch";
+import { ToastContainer } from "react-toastify";
+
 const SingleProductPage = ({ productsData, handleAddToCart }) => {
   const { productId } = useParams();
 
@@ -52,7 +54,7 @@ const SingleProductPage = ({ productsData, handleAddToCart }) => {
   }
 
   const name = singleProductCard?.attributes?.productName;
-  const desc = singleProductCard?.attributes?.productDesc;
+  const desc = singleProductCard?.attributes?.productSingleDesc;
   const price = singleProductCard?.attributes?.productPrice;
   const img = singleProductCard?.attributes?.productImg?.data?.attributes?.url;
 
@@ -75,12 +77,7 @@ const SingleProductPage = ({ productsData, handleAddToCart }) => {
               {price}
             </p>
             <p className="single-desc">
-              Господа, современная методология разработки прекрасно подходит для
-              реализации стандартных подходов. Разнообразный и богатый опыт
-              говорит нам, что граница обучения кадров говорит о возможностях
-              позиций, занимаемых участниками в отношении поставленных задач. В
-              целом, конечно, повышение уровня гражданского сознания требует
-              анализа инновационных методов управления процессами.
+              {desc}
             </p>
             <div className="buttons-container">
               <button
@@ -99,6 +96,7 @@ const SingleProductPage = ({ productsData, handleAddToCart }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 };

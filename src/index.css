@@ -113,15 +113,40 @@ textarea {
   color: hsl(0, 0%, 100%);
 }
 
-/* Hero Section */
-.hero-section {
-  padding-top: 0 !important;
-  color: #fff;
+.nav-links a:last-child {
+  position: relative;
+}
+
+.quantity {
+  padding: 3px 3px 2px 3px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: absolute;
+  top: -20px;
+  right: -10px;
+
+  width: 20px;
+  height: 20px;
+  
+  background: #669674;
+  color: #fff;
+  border-radius: 3px;
+}
+
+/* Hero Section */
+.hero-section {
+  padding-top: 0 !important;
   height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   background: linear-gradient(239deg, #354F52 29.14%, #52796F 100%);
+  color: #fff;
 }
 
 .hero-content {
@@ -358,7 +383,7 @@ textarea {
 
   width: 100%;
   max-width: 370px;
-  height: 500px;
+  height: 520px;
 
   border-radius: 9px;
   border: 3.25px solid #456662;
@@ -391,6 +416,15 @@ textarea {
 .card-description {
   font-size: 15px;
   font-weight: 400;
+}
+
+.card-key {
+  padding: 10px 0;
+  font-weight: 500;
+}
+
+.card-key strong {
+  font-weight: 700;
 }
 
 .card-price {

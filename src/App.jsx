@@ -9,6 +9,7 @@ import Products from "./pages/products/index";
 import AppLayout from "./components/molecules/AppLayout";
 import SingleProductPage from "./pages/products/product";
 import Cart from "./pages/cart";
+import { ToastContainer, toast } from "react-toastify";
 
 import useFetch from "./hooks/useFetch";
 import { useState } from "react";
@@ -26,9 +27,29 @@ function App() {
       setCartItems(
         cartItems.map((item) => item.id === product.id && { ...productInCart })
       );
+      toast.error("Продукт уже в корзине", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
       setQuantity((prev) => prev + 1);
       setCartItems([...cartItems, { ...product }]);
+      toast.success("Товар успешно добавлен в корзину", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   }
 
