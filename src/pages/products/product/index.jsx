@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { PacmanLoader } from "react-spinners";
 import circle from "../../../images/circle.svg";
-
+import useFetch from "../../../hooks/useFetch";
 const SingleProductPage = ({ productsData, handleAddToCart }) => {
   const { productId } = useParams();
 
@@ -11,6 +11,45 @@ const SingleProductPage = ({ productsData, handleAddToCart }) => {
   );
 
   const navigate = useNavigate();
+
+  const { loading, error } = useFetch(
+    "http://localhost:1337/api/products?populate=*"
+  );
+
+  if (error) {
+    return (
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: 'column'
+        }}
+      >
+        <h1>Error! We are working on it!</h1>
+        <button>
+          <a href="/products">Назад</a>
+        </button>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        <PacmanLoader color="#36d7b7" size={50} speedMultiplier={2} />
+      </div>
+    );
+  }
 
   const name = singleProductCard?.attributes?.productName;
   const desc = singleProductCard?.attributes?.productDesc;

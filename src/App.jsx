@@ -9,7 +9,6 @@ import Products from "./pages/products/index";
 import AppLayout from "./components/molecules/AppLayout";
 import SingleProductPage from "./pages/products/product";
 import Cart from "./pages/cart";
-import { PacmanLoader } from "react-spinners";
 
 import useFetch from "./hooks/useFetch";
 import { useState } from "react";
@@ -17,31 +16,15 @@ import { useState } from "react";
 const url = "http://localhost:1337/api/products?populate=*";
 
 function App() {
-  const { data: productsData, loading } = useFetch(url);
+  const { data: productsData } = useFetch(url);
   const [cartItems, setCartItems] = useState([]);
   const [quantity, setQuantity] = useState(0);
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <PacmanLoader color="#36d7b7" size={50} speedMultiplier={2} />
-      </div>
-    );
-  }
-
   function handleAddToCart(product) {
-    const productExist = cartItems.find((item) => item.id === product.id);
-    if (productExist) {
+    const productInCart = cartItems.find((item) => item.id === product.id);
+    if (productInCart) {
       setCartItems(
-        cartItems.map((item) => item.id === product.id && { ...productExist })
+        cartItems.map((item) => item.id === product.id && { ...productInCart })
       );
     } else {
       setQuantity((prev) => prev + 1);
