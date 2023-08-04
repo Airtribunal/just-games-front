@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import useFetch from "./hooks/useFetch";
 import { useState } from "react";
+import About from "./pages/about";
 
 const url = "http://localhost:1337/api/products?populate=*";
 
@@ -86,11 +87,7 @@ function App() {
         },
         {
           path: "/about",
-          element: (
-            <section>
-              <h1 className="section-title">Кто мы?</h1>
-            </section>
-          ),
+          element: <About />,
         },
         {
           path: "/cart",
