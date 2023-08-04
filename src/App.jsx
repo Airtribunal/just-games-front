@@ -9,7 +9,7 @@ import Products from "./pages/products/index";
 import AppLayout from "./components/molecules/AppLayout";
 import SingleProductPage from "./pages/products/product";
 import Cart from "./pages/cart";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import useFetch from "./hooks/useFetch";
 import { useState } from "react";

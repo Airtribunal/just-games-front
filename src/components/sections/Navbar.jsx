@@ -18,25 +18,25 @@ const Navbar = ({quantity}) => {
           <div className="nav-links">
             <Link
               to="/home"
-              className={pathname.startsWith("/home") ? "active" : ""}
+              className={pathname.startsWith("/home") && "active"}
             >
               главная
             </Link>
             <Link
               to="/products"
-              className={pathname.startsWith("/products") ? "active" : ""}
+              className={pathname.startsWith("/products") && "active"}
             >
               товары
             </Link>
             <Link
               to="/about"
-              className={pathname.startsWith("/about") ? "active" : ""}
+              className={pathname.startsWith("/about") && "active"}
             >
               o нас
             </Link>
             <Link
               to="/cart"
-              className={pathname.startsWith("/cart") ? "active" : ""}
+              className={pathname.startsWith("/cart") && "active"}
             >
               корзина <span className="quantity">{quantity}</span>
             </Link>
