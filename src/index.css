@@ -48,6 +48,7 @@ textarea {
 .header {
   width: 100%;
   position: absolute;
+  z-index: 1;
 
   background: linear-gradient(338deg, #354F52 29.14%, #52796F 100%);
   padding: 0 0 40px 0;
@@ -206,7 +207,9 @@ textarea {
 
 .hero-img {
   position: absolute;
+  z-index: 3;
   right: -12%;
+  margin-top: 5%;
 }
 
 .AdvCard {
